@@ -1,0 +1,6 @@
+/* Pages/helloWorld.wxss */
+view{
+  width: 100%;
+  height: 40rpx;
+  text-align: center;
+}

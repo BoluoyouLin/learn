@@ -1,0 +1,88 @@
+/* pages/index/index.wxss */
+.tabs{
+  display: flex;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  position: fixed;
+  border-bottom: 2rpx solid #f3f3f3;
+  background-color: #fff;
+  z-index: 999;
+}
+
+.tabs .tab{
+  width: 50%;
+  text-align: center;
+  font-size: 32rpx;
+}
+
+.tabs .line{
+  width: 50%;
+  position: absolute;
+  height: 4rpx;
+  background-color: black;
+  bottom: 0;
+  transition: left 0.2s;
+}
+
+.tap-page{
+  display: none;
+  position: relative;
+  top: 100rpx;
+}
+
+.show{
+  display: block;
+}
+
+.subject-list{
+  display: flex;
+  flex-direction: column;
+}
+
+.subject-item{
+  display: flex;
+  padding: 20rpx;
+  border-bottom: 2rpx solid #eee;
+}
+
+.subject-item image{
+  width: 256rpx;
+}
+
+.subject-item .meta{
+  display:flex;
+  flex-direction: column;
+  flex:1;
+  margin: 0 20rpx;
+}
+
+.subject-item .score{
+  font-size: 32rpx;
+  font-weight: 700;
+  color: orange;
+}
+
+.subject-item .meta .title{
+  font-size: 32rpx;
+  font-weight: 500;
+}
+
+.fs25-grey{
+  font-size: 25rpx;
+  color: #c0c0c0;
+  margin-right: 6rpx; 
+}
+
+.mgb6{
+  margin-bottom: 6rpx;
+}
+
+.subject-item .meta .director image{
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+}
+
+
+

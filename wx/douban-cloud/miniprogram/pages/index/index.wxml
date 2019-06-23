@@ -1,0 +1,50 @@
+<view class="tabs">
+  <view class='tab' bindtap='change' data-index='0'>正在上映</view>
+  <view class='tab' bindtap='change' data-index='1'>即将上映</view>
+  <view class='line' style='left:{{left}}%'></view>
+</view>
+<view class='tap-page {{index == 0?"show":""}}'>
+  <view class='subject-list'>
+    <block wx:for='{{all[0]}}'>
+      <view class='subject-item'>
+        <image src='{{item.images.large}}' mode='widthFix'></image>
+        <view class='meta'>
+          <view class='title mgb6'>{{item.title}}</view>
+          <view class='sub mgb6'>
+            <text class='sub-title fs25-grey'>{{item.original_title}}</text>
+            <text class='year fs25-grey'>{{item.mainland_pubdate}}</text>
+          </view>
+          <view class='directors'>
+            <block wx:for="{{item.directors}}" wx:for-item='dir'>
+              <text class='director fs25-grey'>{{dir.name}}</text>
+            </block>
+          </view>
+        </view>
+        <view class='score'>{{item.rating.average}}</view>
+      </view>
+    </block>
+  </view>
+</view>
+
+<view class='tap-page {{index == 1?"show":""}}'>
+  <view class='subject-list'>
+    <block wx:for='{{all[1]}}'>
+      <view class='subject-item'>
+        <image src='{{item.images.large}}' mode='widthFix'></image>
+        <view class='meta'>
+          <view class='title mgb6'>{{item.title}}</view>
+          <view class='sub mgb6'>
+            <text class='sub-title fs25-grey'>{{item.original_title}}</text>
+            <text class='year fs25-grey'>{{item.mainland_pubdate}}</text>
+          </view>
+          <view class='directors'>
+            <block wx:for="{{item.directors}}" wx:for-item='dir'>
+              <text class='director fs25-grey'>{{dir.name}}</text>
+            </block>
+          </view>
+        </view>
+        <view class='score'>{{item.rating.average}}</view>
+      </view>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,7 @@
+$blue:#056rf0;
+$cloumn:200px;
+
+.menu{
+    width: calc(4*$cloumn);
+    background-color: $blue;
+}

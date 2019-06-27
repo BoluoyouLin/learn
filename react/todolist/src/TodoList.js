@@ -1,13 +1,13 @@
 import React,{ Component,Fragment } from 'react';
-import TodoItem from './TodoItem'
+import TodoItem from './TodoItem';
+import "./todoItem.css";
+import { CSSTransition ,TransitionGroup} from 'react-transition-group';
+import store from './store'
 
 class TodoList extends Component{
     constructor(props){
         super(props);
-        this.state={
-            inputValue:'',
-            list:[]
-        } 
+        this.state= store.getState()
         this.changeInputValue = this.changeInputValue.bind(this)
         this.addItem = this.addItem.bind(this)
         this.removeItem = this.removeItem.bind(this)
@@ -28,18 +28,26 @@ class TodoList extends Component{
                     <button onClick={this.addItem}>提交</button>
                 </div>
                 <ul>
+                    <TransitionGroup>
                     {
                         this.state.list.map((item,index) => {
                             return(
-                               <TodoItem
-                               key={index}
-                               content={item}
-                               index={index}
-                               removeItem={this.removeItem}
+                                <CSSTransition
+                                key={index}
+                                classNames="item"
+                                timeout={1000}
+                                unmountOnExit
+                                >
+                                    <TodoItem
+                                    content={item}
+                                    index={index}
+                                    removeItem={this.removeItem}
 							   />
+                                </CSSTransition>
                             )
                         })
                     }
+                    </TransitionGroup>
                 </ul>
             </Fragment>
         )

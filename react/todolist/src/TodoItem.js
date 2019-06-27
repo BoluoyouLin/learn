@@ -6,11 +6,18 @@ class TodoItem extends Component{
         super(props)
         this.removeItem = this.removeItem.bind(this)
     }
+
+    shouldComponentUpdate(nextProp,nextState){
+        if(nextProp.content !== this.props.content){
+            return true;
+        }
+        return false;
+    }
     
     render(){
         const { content , text } = this.props
         return(
-            <div onClick={this.removeItem}>{text}-{content}</div>
+            <div onClick={this.removeItem} >{text}-{content}</div>
         )
     }
 

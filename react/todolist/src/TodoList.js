@@ -11,6 +11,8 @@ class TodoList extends Component{
         this.changeInputValue = this.changeInputValue.bind(this)
         this.addItem = this.addItem.bind(this)
         this.removeItem = this.removeItem.bind(this)
+        this.changeStoreState = this.changeStoreState.bind(this)
+        store.subscribe(this.changeStoreState)
     }
 
     render(){
@@ -53,22 +55,22 @@ class TodoList extends Component{
         )
     }
 
-    changeInputValue(e){
-        const value = this.input.value;
-        this.setState(() =>({inputValue:value}))
+    changeInputValue(e) {
+        const action = {
+            type : "change_input_value",
+            value : e.target.value
+        }
+        store.dispatch(action)
     }
 
-    addItem(){
-        this.setState((prevState) =>{
-            const list = [...prevState.list,prevState.inputValue]
-            return {
-                list:list,
-                inputValue:''
-            }
-        })
+    addItem() {
+        const action = {
+            type : "add_todo_item"
+        }
+        store.dispatch(action)
     }
 
-    removeItem(index){
+    removeItem(index) {
         this.setState((prevState,index)=>{
             const list = [...prevState.list]
             list.splice(index,1)
@@ -76,6 +78,10 @@ class TodoList extends Component{
                 list:list
             }
         })
+    }
+
+    changeStoreState() {
+        this.setState(store.getState())
     }
 }
 

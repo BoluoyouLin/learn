@@ -71,13 +71,11 @@ class TodoList extends Component{
     }
 
     removeItem(index) {
-        this.setState((prevState,index)=>{
-            const list = [...prevState.list]
-            list.splice(index,1)
-            return {
-                list:list
-            }
-        })
+        const action = {
+            type : "delete_todo_item",
+            index : index
+        }
+        store.dispatch(action)
     }
 
     changeStoreState() {

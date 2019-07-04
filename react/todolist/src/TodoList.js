@@ -1,8 +1,8 @@
-import React,{ Component,Fragment } from 'react';
-import TodoItem from './TodoItem';
+import React,{ Component } from 'react';
 import "./todoItem.css";
-import { CSSTransition ,TransitionGroup} from 'react-transition-group';
-import store from './store'
+import TodoListUI from './TodoListUI';
+import store from './store';
+import { getListData, getChangeInputValueAction, getAddTodoItemAction, getDeleteTodoItemAction } from './store/actionCreators';
 
 class TodoList extends Component{
     constructor(props){
@@ -16,65 +16,33 @@ class TodoList extends Component{
     }
 
     render(){
-        return(
-            <Fragment>
-                <div>
-                    <label htmlFor='insert'>内容</label>
-                    <input 
-                    id='insert'
-                    value={this.state.inputValue} 
-                    onChange={this.changeInputValue}
-                    ref={(input) => {
-                        this.input = input
-                    }}/>
-                    <button onClick={this.addItem}>提交</button>
-                </div>
-                <ul>
-                    <TransitionGroup>
-                    {
-                        this.state.list.map((item,index) => {
-                            return(
-                                <CSSTransition
-                                key={index}
-                                classNames="item"
-                                timeout={1000}
-                                unmountOnExit
-                                >
-                                    <TodoItem
-                                    content={item}
-                                    index={index}
-                                    removeItem={this.removeItem}
-							   />
-                                </CSSTransition>
-                            )
-                        })
-                    }
-                    </TransitionGroup>
-                </ul>
-            </Fragment>
-        )
+        return <TodoListUI 
+        inputValue = {this.state.inputValue}
+        changeInputValue = {this.changeInputValue}
+        addItem = {this.addItem}
+        list = {this.state.list}
+        removeItem = {this.removeItem}
+        />
     }
 
+    componentDidMount() {
+        const action = getListData();
+        store.dispatch(action)
+    }
+
+
     changeInputValue(e) {
-        const action = {
-            type : "change_input_value",
-            value : e.target.value
-        }
+        const action = getChangeInputValueAction(e.target.value)
         store.dispatch(action)
     }
 
     addItem() {
-        const action = {
-            type : "add_todo_item"
-        }
+        const action = getAddTodoItemAction()
         store.dispatch(action)
     }
 
     removeItem(index) {
-        const action = {
-            type : "delete_todo_item",
-            index : index
-        }
+        const action = getDeleteTodoItemAction(index)
         store.dispatch(action)
     }
 

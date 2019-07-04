@@ -2,7 +2,7 @@ import React,{ Component } from 'react';
 import "./todoItem.css";
 import TodoListUI from './TodoListUI';
 import store from './store';
-import { getListData, getChangeInputValueAction, getAddTodoItemAction, getDeleteTodoItemAction } from './store/actionCreators';
+import { getTodoList, getChangeInputValueAction, getAddTodoItemAction, getDeleteTodoItemAction } from './store/actionCreators';
 
 class TodoList extends Component{
     constructor(props){
@@ -26,8 +26,8 @@ class TodoList extends Component{
     }
 
     componentDidMount() {
-        const action = getListData();
-        store.dispatch(action)
+       const action = getTodoList();
+       store.dispatch(action)
     }
 
 

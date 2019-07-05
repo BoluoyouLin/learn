@@ -1,31 +1,29 @@
-import { CHANGE_INPUT_VALUE, ADD_TODO_ITEM, DELETE_TODO_ITEM, INIT_LIST_DATA } from './actionTypes';
+import { ADD_TODO_ITEM, CHANGE_INPUT_VALUE, DELETE_TODO_ITEM } from './actionTypes'
 
 const defaultState = {
-    inputValue:'',
-    list:[]
+    inputValue: '',
+    list: []
 }
 
-export default (state = defaultState,action) =>{
+export default (state = defaultState, action) => {
     if(action.type === CHANGE_INPUT_VALUE) {
-        const newState = JSON.parse(JSON.stringify(state))
-        newState.inputValue = action.value
-        return newState
+        var newState = JSON.parse(JSON.stringify(state))
+        newState.inputValue = action.value;
+        return newState;
     }
     if(action.type === ADD_TODO_ITEM) {
-        const newState = JSON.parse(JSON.stringify(state))
+        // eslint-disable-next-line no-redeclare
+        var newState = JSON.parse(JSON.stringify(state))
         newState.list.push(newState.inputValue)
-        newState.inputValue = ''
-        return newState
+        newState.inputValue = '' 
+        return newState;
     }
     if(action.type === DELETE_TODO_ITEM) {
-        const newState = JSON.parse(JSON.stringify(state))
-        newState.list.splice(action.index,1)
-        return newState
+        // eslint-disable-next-line no-redeclare
+        var newState = JSON.parse(JSON.stringify(state))
+        newState.list.splice(action.index, 1)
+        return newState;
     }
-    if(action.type === INIT_LIST_DATA) {
-        const newState = JSON.parse(JSON.stringify(state))
-        newState.list = action.data
-        return newState
-    }
-    return state
+    return state;
 }
+

@@ -1,11 +1,9 @@
-import React,{ Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { changeInputValueAction, addTodoItemAction, deleteTodoItemAction } from './store/actionCreator';
 
-class TodoList extends Component {
-
-    render() {
-        const { inputValue, changeInputValue, addTodoItem, list, deleteTodoItem } = this.props
+const TodoList = (props) => {
+    const { inputValue, changeInputValue, addTodoItem, list, deleteTodoItem } = props
         return (
             <div>
                 <div>
@@ -21,7 +19,6 @@ class TodoList extends Component {
                 </ul>
             </div>
         )
-    }
 }
 
 const mapStateToProps = (state) => {

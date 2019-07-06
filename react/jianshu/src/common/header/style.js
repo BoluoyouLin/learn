@@ -138,3 +138,44 @@ export const NavImage = styled.img.attrs({
     padding: 15px 0px;
     margin: 0 12px;
 `;
+
+export const SearchInfo = styled.div`
+    position: absolute;
+    width: 250px;
+    box-sizing: border-box;
+    padding 20px 20px 10px;
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(0,0,0,.2);
+    margin-top: 10px;
+    display: none;
+    &.show {
+        display: block;
+    }
+`;
+
+export const SearchInfoTitle = styled.span`
+    font-size: 14px;
+    color: #969696;
+`;
+
+export const SearchInfoSwitch = styled.span`
+    font-size: 13px;
+    color: #969696;
+    float: right;
+`;
+
+export const SearchInfoList = styled.div`
+    list-style: none;
+    margin-top: 10px;
+`;
+
+export const SearchInfoItem = styled.a`
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 2px 6px;
+    font-size: 12px;
+    color: #787878;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+`;

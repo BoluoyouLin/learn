@@ -178,4 +178,5 @@ export const SearchInfoItem = styled.a`
     color: #787878;
     border: 1px solid #ddd;
     border-radius: 3px;
+    cursor: pointer;
 `;

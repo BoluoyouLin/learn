@@ -1,16 +1,20 @@
-import { SEARCH_FOCUS, SEARCH_BLUR } from './actionTypes';
+import * as actionTypes from './actionTypes';
 import { fromJS } from 'immutable'; 
 
 const defaultState = fromJS({
-    focus: false
+    focus: false,
+    list: []
 })
 
 export default (state = defaultState, action) => {
-    if(action.type === SEARCH_FOCUS) {
-        return state.set('focus', true)
+    switch(action.type) {
+        case actionTypes.SEARCH_FOCUS:
+            return state.set('focus', true)
+        case actionTypes.SEARCH_BLUR:
+            return state.set('focus', false)
+        case actionTypes.CHANGE_LIST:
+            return state.set('list', action.data)
+        default:
+            return state
     }
-    if(action.type === SEARCH_BLUR) {
-        return state.set('focus', false)
-    }
-    return state
 }

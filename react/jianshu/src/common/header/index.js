@@ -1,21 +1,12 @@
-import React,{ Component } from 'react';
+import React from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { HeaderWrapper, Logo, Nav, NavItem, NavSearch, Button, Additional, NavImage, SearchWrapper } from './style';
+import { connect } from 'react-redux';
+import { actionCreators } from './store';
 
-class Header extends Component {
-
-    constructor(props) {
-        super(props)
-        this.state = {
-            focus: false
-        }
-        this.handleSearchFocus = this.handleSearchFocus.bind(this);
-        this.handleSearchBlur = this.handleSearchBlur.bind(this)
-    }
-
-    render() {
-        return (
-            <HeaderWrapper>
+const Header = (props) => {
+    return (
+        <HeaderWrapper>
                 <Logo />
                 <Nav>
                     <NavItem className="right login">登录</NavItem>
@@ -30,16 +21,16 @@ class Header extends Component {
                     </NavItem>
                     <SearchWrapper>
                         <CSSTransition
-                            in={this.state.focus}
+                            in={props.focus}
                             timeout={300}
                             classNames="focus"
                         >
                             <NavSearch
-                                onFocus={this.handleSearchFocus}
-                                onBlur={this.handleSearchBlur}
+                                onFocus={props.handleSearchFocus}
+                                onBlur={props.handleSearchBlur}
                             ></NavSearch>
                         </CSSTransition>
-                        <i className={ this.state.focus ? "iconfont focus" : "iconfont"}>&#xe620;</i>
+                        <i className={ props.focus ? "iconfont focus" : "iconfont"}>&#xe620;</i>
                     </SearchWrapper>
                 </Nav>
                 <Additional>
@@ -50,20 +41,24 @@ class Header extends Component {
                     </Button>
                 </Additional>
             </HeaderWrapper>
-        )
-    }
+    )
+}
 
-    handleSearchFocus() {
-        this.setState({
-            focus: true
-        })
-    }
-
-    handleSearchBlur() {
-        this.setState({
-            focus: false
-        })
+const mapStateToProps = (state) => {
+    return {
+        focus: state.header.focus
     }
 }
 
-export default Header;
+const mapToDispatchProps = (dispatch) => {
+    return {
+        handleSearchFocus() {
+            dispatch(actionCreators.getSearchFocus())
+        },
+        handleSearchBlur() {
+            dispatch(actionCreators.getSearchBlur())
+        }
+    }
+}
+
+export default connect(mapStateToProps,mapToDispatchProps)(Header);

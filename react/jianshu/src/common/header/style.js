@@ -48,9 +48,45 @@ export const NavItem = styled.div`
     color: #333;
 `;
 
+export const SearchWrapper = styled.div`
+    position: relative;
+    display: inline-block;
+    .iconfont {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        width: 30px;
+        border-radius: 20px;
+        line-height: 30px;
+        text-align: center;
+        &.focus {
+            background-color: #999;
+            color: #fff;
+        }
+    }
+`
+
 export const NavSearch = styled.input.attrs({
     placeholder: '搜索'
 })`
+    &.focus-enter {
+        transition: all .3s ease-in;
+    }
+    &.focus-enter-active {
+        width: 280px;
+    }
+    &.focus-enter-done {
+        width: 280px;
+    }
+    &.focus-exit {
+        transition: all .3s ease-in;
+    }
+    &.focus-exit-active {
+        width: 180px;
+    }
+    &.focus-exit-done {
+        width: 180px;
+    }
     width: 180px;
     font-size: 14px;
     border: 1px solid #eee;
@@ -60,6 +96,7 @@ export const NavSearch = styled.input.attrs({
     line-height: 58px;
     outline: none;
     padding: 0 40px 0 20px;
+    color: #777;
 `;
 
 export const Button = styled.div`
@@ -72,7 +109,7 @@ export const Button = styled.div`
         background-color: #fff;
         color: #ea6f5a;
     }
-    width: 80px;
+    min-width: 80px;
     height: 38px;
     line-height: 24px;
     text-align: center;

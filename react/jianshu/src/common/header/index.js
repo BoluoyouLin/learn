@@ -19,6 +19,17 @@ import { connect } from 'react-redux';
 import { actionCreators } from './store';
 
 const Header = (props) => {
+
+    const { list, page, focus, mouse, totalPage, handleSearchFocus, handleSearchBlur, handleMouseEnter, handleMouseLeave, changePage } = props;
+    const pageList = [];
+
+    if(list.length) {
+        const size = (page + 1) * 10 < list.length ?  (page + 1) * 10 : list.length;
+        for(let i = page * 10; i < size; i++) {
+            pageList.push(list[i])
+        }
+    }
+
     return (
         <HeaderWrapper>
                 <Logo />
@@ -35,22 +46,25 @@ const Header = (props) => {
                     </NavItem>
                     <SearchWrapper>
                         <CSSTransition
-                            in={props.focus}
+                            in={focus}
                             timeout={300}
                             classNames="focus"
                         >
                             <NavSearch
-                                onFocus={props.handleSearchFocus}
-                                onBlur={props.handleSearchBlur}
+                                onFocus={handleSearchFocus}
+                                onBlur={handleSearchBlur}
                             ></NavSearch>
                         </CSSTransition>
-                        <i className={ props.focus ? "iconfont focus" : "iconfont"}>&#xe620;</i>
-                        <SearchInfo className={ props.focus ? 'show' : ''}>
-                            <SearchInfoSwitch>换一批</SearchInfoSwitch>
+                        <i className={ focus ? "iconfont focus" : "iconfont"}>&#xe620;</i>
+                        <SearchInfo className={ focus || mouse ? 'show' : ''}
+                            onMouseEnter={handleMouseEnter}
+                            onMouseLeave={handleMouseLeave}
+                        >
+                            <SearchInfoSwitch onClick={() => changePage(page, totalPage)}>换一批</SearchInfoSwitch>
                             <SearchInfoTitle>热门搜索</SearchInfoTitle>
                             <SearchInfoList>
                                 {
-                                    props.list.map((item) => {
+                                    pageList.map((item) => {
                                         return <SearchInfoItem key={item}>{item}</SearchInfoItem>
                                     })
                                 }
@@ -72,7 +86,10 @@ const Header = (props) => {
 const mapStateToProps = (state) => {
     return {
         focus: state.getIn(['header', 'focus']),
-        list: state.getIn(['header', 'list'])
+        list: state.getIn(['header', 'list']),
+        mouse: state.getIn(['header', 'mouse']),
+        page: state.getIn(['header', 'page']),
+        totalPage: state.getIn(['header', 'totalPage'])
     }
 }
 
@@ -84,6 +101,19 @@ const mapToDispatchProps = (dispatch) => {
         },
         handleSearchBlur() {
             dispatch(actionCreators.getSearchBlur())
+        },
+        handleMouseEnter() {
+            dispatch(actionCreators.mouseEnter())
+        },
+        handleMouseLeave() {
+            dispatch(actionCreators.mouseLeave())
+        },
+        changePage(page, totalPage) {
+            if(page < totalPage - 1) {
+                dispatch(actionCreators.changePage(page + 1))
+            }else {
+                dispatch(actionCreators.changePage(0))
+            }
         }
     }
 }

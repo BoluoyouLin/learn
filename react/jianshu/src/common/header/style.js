@@ -162,6 +162,7 @@ export const SearchInfoSwitch = styled.span`
     font-size: 13px;
     color: #969696;
     float: right;
+    cursor: pointer;
 `;
 
 export const SearchInfoList = styled.div`

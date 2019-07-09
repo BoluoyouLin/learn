@@ -1,5 +1,5 @@
-import homeReducer from './reducer';
+import detailReducer from './reducer';
 import * as actionCreators from './actionCreators';
 import * as actionTypes from './actionTypes';
 
-export { homeReducer, actionCreators, actionTypes }
+export { detailReducer, actionCreators, actionTypes }

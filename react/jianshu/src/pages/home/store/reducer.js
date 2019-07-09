@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-import * as actionTypes from './actionType';
+import * as actionTypes from './actionTypes';
 
 const defaultState = fromJS({
     articleList: [],

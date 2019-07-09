@@ -13,8 +13,8 @@ function App() {
     <Provider store={store}>
       <GlobalStyle/>
       <GlobalStyleByIconfont/>
-      <Header/>
       <BrowserRouter>
+        <Header/>
         <Route path="/" exact component={Home}></Route>
         <Route path="/detail" exact component={Details}></Route>
       </BrowserRouter>

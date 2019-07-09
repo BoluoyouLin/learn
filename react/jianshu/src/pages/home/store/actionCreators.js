@@ -1,9 +1,15 @@
-import { INIT_HOME_DATA } from './actionType';
+import * as actionTypes from './actionType';
 import axios from 'axios';
+import { fromJS } from 'immutable';
 
 const loadHomeData = (data) => ({
-    type: INIT_HOME_DATA,
+    type: actionTypes.INIT_HOME_DATA,
     data
+})
+
+const getArticles = (list) => ({
+    type: actionTypes.LOAD_MORE_DATA,
+    list: fromJS(list)
 })
 
 export const initHomeData = () => {
@@ -13,3 +19,16 @@ export const initHomeData = () => {
         })
     }
 }
+
+export const getMoreDate = () => {
+    return (dispatch) => {
+        axios.get('/api/homeList.json').then((res) => {
+            dispatch(getArticles(res.data.data))
+        })
+    }
+}
+
+export const changeBackTopShow = (show) => ({
+    type: actionTypes.CHANGE_BACK_TOP_SHOW,
+    show
+})

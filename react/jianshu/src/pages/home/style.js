@@ -6,6 +6,8 @@ export const HomeWrapper = styled.div`
     .homeImg {
         width: 625px;
         height: 270px;
+        border-radius: 6px;
+        margin-bottom: 35px;
     }
 `;
 
@@ -13,6 +15,10 @@ export const LeftWrapper = styled.div`
     width: 640px;
     box-sizing: border-box;
     padding-right: 15px;
+    a {
+        text-decoration:none;
+        out-line: none;
+    }
 `;
 
 export const RightWrapper = styled.div`
@@ -149,4 +155,31 @@ export const AuthorName = styled.p`
     color: #333;
     line-height: 20px;
     box-sizing: border-box;
+`;
+
+export const LoadMore = styled.div`
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    margin: 30px 0;
+    background: #a5a5a5;
+    color: #fff;
+    line-height: 40px;
+    font-size: 15px;
+    border-radius: 20px;
+    cursor: pointer;
+`;
+
+export const BackTop = styled.div`
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    border: 1px solid #eee;
+    background-color: #fff;
+    font-size: 14px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    cursor: pointer;
 `;

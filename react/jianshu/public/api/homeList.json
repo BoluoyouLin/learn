@@ -1,0 +1,27 @@
+{
+    "success": true,
+    "data": [{
+        "id": 5,
+        "title": "加权基因共表达网络（WGCNA）寻找与疾病相关的hub基因",
+        "desc": "WGCNA其译为加权基因共表达网络分析。该分析方法旨在寻找协同表达的基因模块(module)，并探索基因网络与关注的表型之间的关联，以及网络中的...",
+        "imgUrl": "//upload-images.jianshu.io/upload_images/14961097-85d1b1dfc1c98700.png?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240"
+    },
+    {
+        "id": 6,
+        "title": "加权基因共表达网络（WGCNA）寻找与疾病相关的hub基因",
+        "desc": "WGCNA其译为加权基因共表达网络分析。该分析方法旨在寻找协同表达的基因模块(module)，并探索基因网络与关注的表型之间的关联，以及网络中的...",
+        "imgUrl": "//upload-images.jianshu.io/upload_images/14961097-85d1b1dfc1c98700.png?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240"
+    },
+    {
+        "id": 7,
+        "title": "加权基因共表达网络（WGCNA）寻找与疾病相关的hub基因",
+        "desc": "WGCNA其译为加权基因共表达网络分析。该分析方法旨在寻找协同表达的基因模块(module)，并探索基因网络与关注的表型之间的关联，以及网络中的...",
+        "imgUrl": "//upload-images.jianshu.io/upload_images/14961097-85d1b1dfc1c98700.png?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240"
+    },
+    {
+        "id": 8,
+        "title": "加权基因共表达网络（WGCNA）寻找与疾病相关的hub基因",
+        "desc": "WGCNA其译为加权基因共表达网络分析。该分析方法旨在寻找协同表达的基因模块(module)，并探索基因网络与关注的表型之间的关联，以及网络中的...",
+        "imgUrl": "//upload-images.jianshu.io/upload_images/14961097-85d1b1dfc1c98700.png?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240"
+    }]
+}

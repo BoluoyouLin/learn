@@ -1,4 +1,4 @@
-import React,{  Component } from 'react';
+import React,{  PureComponent } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { HeaderWrapper,
             Logo, 
@@ -17,8 +17,9 @@ import { HeaderWrapper,
         } from './style';
 import { connect } from 'react-redux';
 import { actionCreators } from './store';
+import { Link } from 'react-router-dom';
 
-class Header extends Component {
+class Header extends PureComponent {
     render() {
         const { list, page, focus, mouse, totalPage, handleSearchFocus, handleSearchBlur, handleMouseEnter, handleMouseLeave, changePage } = this.props;
         const pageList = [];
@@ -32,7 +33,9 @@ class Header extends Component {
 
         return (
             <HeaderWrapper>
+                <Link to='/'>
                     <Logo />
+                </Link>
                     <Nav>
                         <NavItem className="right login">登录</NavItem>
                         <NavImage></NavImage>
@@ -114,7 +117,6 @@ const mapToDispatchProps = (dispatch) => {
         },
         changePage(page, totalPage, spin) {
             var originAngle = spin.style.transform.replace(/[^0-9]/ig, '')
-            console.log(originAngle)
             if(originAngle) {
                 originAngle = parseInt(originAngle, 10)
             }else {
@@ -122,7 +124,6 @@ const mapToDispatchProps = (dispatch) => {
             }
             originAngle += 360
             spin.style.transform = 'rotate('+ originAngle +'deg)'
-            console.log(spin.style.transform)
             if(page < totalPage - 1) {
                 dispatch(actionCreators.changePage(page + 1))
             }else {

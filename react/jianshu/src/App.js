@@ -5,7 +5,7 @@ import Header from './common/header'
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 import store from './store';
-import Details from './pages/details';
+import Details from './pages/details/loadable';
 import Home from './pages/home'
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
       <BrowserRouter>
         <Header/>
         <Route path="/" exact component={Home}></Route>
-        <Route path="/detail" exact component={Details}></Route>
+        <Route path="/detail/:id" exact component={Details}></Route>
       </BrowserRouter>
     </Provider>
   );

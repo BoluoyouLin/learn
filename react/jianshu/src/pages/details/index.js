@@ -6,6 +6,7 @@ import {
 } from './style';
 import { connect } from 'react-redux';
 import { actionCreators } from './store';
+import { withRouter } from 'react-router-dom';
 
 class Details extends PureComponent {
     render() {
@@ -19,6 +20,7 @@ class Details extends PureComponent {
     }
 
     componentDidMount() {
+        console.log(this.props.match.params.id)
         this.props.getArticle()
     }
 }
@@ -34,4 +36,4 @@ const mapDispatch = (dispatch) => ({
     }
 })
 
-export default connect(mapState, mapDispatch)(Details);
+export default connect(mapState, mapDispatch)(withRouter(Details));

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="500" height="300">
+    </canvas>
+    <canvas width="600" height="400" id="second"></canvas>
+
+    <script>
+        let ctx = document.querySelector('canvas').getContext('2d')
+
+        ctx.moveTo(200, 100)
+        ctx.lineTo(400, 100)
+        ctx.lineTo(400, 250)
+        ctx.lineTo(200, 250)
+        ctx.closePath()
+        ctx.stroke()
+
+        ctx = document.querySelector('#second').getContext('2d')
+        //正方形
+        ctx.moveTo(0, 100)
+        ctx.lineTo(200, 100)
+        ctx.lineTo(200, 200)
+        ctx.lineTo(0, 200)
+        ctx.closePath()
+
+        //三角形
+        ctx.moveTo(300, 100)
+        ctx.lineTo(400, 200)
+        ctx.lineTo(200, 200)
+        ctx.closePath()
+
+        //梯形
+        ctx.moveTo(400, 100)
+        ctx.lineTo(550, 100)
+        ctx.lineTo(600, 200)
+        ctx.lineTo(400, 200)
+        ctx.closePath()
+
+        ctx.fill()
+    </script>
+</body>
+</html>

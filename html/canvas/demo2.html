@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="500" height="400"></canvas>
+    <canvas width="500" height="400" id="second"></canvas>
+    <script>
+        let ctx = document.querySelector('canvas').getContext('2d')
+
+        //线性渐变
+        let grd = ctx.createLinearGradient(100,0,100,100)
+
+        grd.addColorStop(0, 'black')
+        grd.addColorStop(0.5, 'yellow')
+        grd.addColorStop(1, 'red')
+
+        ctx.strokeStyle = grd
+        ctx.lineWidth = '20'
+        ctx.moveTo(100, 0)
+        ctx.lineTo(100, 100)
+        ctx.stroke();
+
+        //径向渐变
+        ctx = document.querySelector('#second').getContext('2d')
+        let rag = ctx.createRadialGradient(200,200,50,200,200,100)
+        rag.addColorStop(0, 'red')
+        rag.addColorStop(1, 'pink')
+        ctx.moveTo(100, 100)
+        ctx.lineTo(400, 100)
+        ctx.lineTo(400, 300)
+        ctx.lineTo(100, 300)
+        ctx.closePath()
+        ctx.fillStyle = rag
+        ctx.fill()
+        
+    </script>
+</body>
+</html>

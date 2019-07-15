@@ -5,12 +5,12 @@ import { fromJS } from 'immutable';
 const loadHomeData = (data) => ({
     type: actionTypes.INIT_HOME_DATA,
     data
-})
+});
 
 const getArticles = (list) => ({
     type: actionTypes.LOAD_MORE_DATA,
     list: fromJS(list)
-})
+});
 
 export const initHomeData = () => {
     return (dispatch) => {
@@ -18,7 +18,7 @@ export const initHomeData = () => {
             dispatch(loadHomeData(res.data.data))
         })
     }
-}
+};
 
 export const getMoreDate = () => {
     return (dispatch) => {
@@ -26,9 +26,9 @@ export const getMoreDate = () => {
             dispatch(getArticles(res.data.data))
         })
     }
-}
+};
 
 export const changeBackTopShow = (show) => ({
     type: actionTypes.CHANGE_BACK_TOP_SHOW,
     show
-})
+});

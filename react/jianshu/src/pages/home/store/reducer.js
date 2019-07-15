@@ -6,7 +6,7 @@ const defaultState = fromJS({
     recommendList: [],
     authorList:  [],
     showBackTop: false
-})
+});
 
 const changeHomeDate = (state, action) => {
     return state.merge({
@@ -14,7 +14,7 @@ const changeHomeDate = (state, action) => {
         recommendList: fromJS(action.data.recommendList),
         authorList : fromJS(action.data.authorList)
     })
-}
+};
 
 export default (state = defaultState, action) => {
     switch(action.type) {
@@ -27,4 +27,4 @@ export default (state = defaultState, action) => {
         default:
             return state
     }
-} 
+};

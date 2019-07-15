@@ -53,7 +53,7 @@ class Home extends PureComponent {
 
 const mapState = (state) => ({
     showBackTop: state.getIn(['home', 'showBackTop'])
-})
+});
 
 const mapDispatch = (dispatch) => ({
     initHomeData() {
@@ -66,6 +66,6 @@ const mapDispatch = (dispatch) => ({
             dispatch(actionCreators.changeBackTopShow(false))
         }
     }
-})
+});
 
 export default connect(mapState, mapDispatch)(Home);

@@ -5,7 +5,7 @@ const changeDetail = (title, content) => ({
     type: actionTypes.CHANGE_DETAIL,
     title,
     content
-})
+});
 
 export const getArticle = () => {
     return (dispatch) => {
@@ -14,4 +14,4 @@ export const getArticle = () => {
             dispatch(changeDetail(data.title, data.content))
         })
     }
-}
+};

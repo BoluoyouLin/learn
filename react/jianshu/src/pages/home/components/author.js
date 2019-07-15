@@ -47,5 +47,6 @@ class Author extends PureComponent {
 
 const mapState = (state) => ({
     list: state.getIn(['home', 'authorList'])
-})
+});
+
 export default connect(mapState, null)(Author);

@@ -40,6 +40,6 @@ const mapDispatch = (dispatch) => ({
     getMoreDate() {
         dispatch(actionCreators.getMoreDate())
     }
-})
+});
 
 export default connect(mapState, mapDispatch)(List);

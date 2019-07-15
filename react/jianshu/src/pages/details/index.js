@@ -28,12 +28,12 @@ class Details extends PureComponent {
 const mapState = (state) => ({
     title: state.getIn(['detail', 'title']),
     content: state.getIn(['detail', 'content'])
-})
+});
 
 const mapDispatch = (dispatch) => ({
     getArticle() {
         dispatch(actionCreators.getArticle())
     }
-})
+});
 
 export default connect(mapState, mapDispatch)(withRouter(Details));

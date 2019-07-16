@@ -7,7 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="video-wrapper">\
-    </div>
+    <form action="#" method="post">
+        <input type="time" onchange="show()">
+    </form>
+    <script>
+        function show() {
+            let range = document.querySelector('input')
+            console.log(range.value)
+        }
+    </script>
 </body>
 </html>

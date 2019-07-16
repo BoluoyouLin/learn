@@ -20,6 +20,16 @@
         }
 
         let display = show.bind(obj)
+
+        //实现一个bind()，在低浏览器没有bind（）的情况下
+        if(!Function.prototype.bind) {
+            var self = this,
+                context = [].shift.call(arguments),
+                args = [].slice.call(arguments)
+            return function() {
+                self.apply(context, [].concat.call(args, [].slice.call(arguments)))
+            }
+        }
     </script>
 </body>
 </html>

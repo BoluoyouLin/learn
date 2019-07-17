@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="display()"></button>
+    <script>
+        function display() {
+            var obj = {
+                'width': 1,
+                'height': 1
+            }
+
+            if(obj['height']) {
+                console.log('obj')
+            }
+
+            var set = new Set();
+            set.add('width')
+            set.add('height')
+            if(set.has('height')) {
+                console.log('set')
+            }
+        }
+    </script>
+</body>
+</html>

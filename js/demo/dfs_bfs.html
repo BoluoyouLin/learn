@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <div class="parent">
         <div class="child-1">
@@ -20,38 +22,39 @@
     <script>
         let parent = document
 
-        dfs = function(node, results) {
-            if(node === null) {
+        dfs = function (node, results) {
+            if (node === null) {
                 return;
             }
 
             results.push(node);
             let children = node.children
-            for(let i = 0; i < children.length; i++) {
+            for (let i = 0; i < children.length; i++) {
                 dfs(children[i], results)
-            } 
+            }
             return results;
         }
 
-        bfs = function(node) {
+        bfs = function (node) {
             let results = []
             let nodes = []
 
             nodes.push(node)
-            while(nodes.length != 0) {
+            while (nodes.length != 0) {
                 let temp = nodes.shift()
                 results.push(temp)
                 let children = temp.children
-                for(let i = 0; i < children.length; i++) {
+                for (let i = 0; i < children.length; i++) {
                     nodes.push(children[i])
                 }
             }
             return results;
         }
 
-        window.onload = function() {
+        window.onload = function () {
             console.log(dfs(parent, []))
         }
     </script>
 </body>
+
 </html>

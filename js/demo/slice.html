@@ -15,8 +15,8 @@
             var array = []
             start = start ? start : 0
             end = end ? end : this.length 
-            for(var i = 0; i < end; i++) {
-                array[i] = this[i]
+            for(var i = 0, j = start; j < end; i++, j++) {
+                array[i] = this[j]
             }
             return array
         }

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    (function(window) {
+        function jQuery(selector) {
+            return new jQuery.prototype.init(selector)
+        }
+
+        jQuery.prototype = {
+            constructor: jQuery,
+            init: function(selector) {
+                let doms = document.querySelectorAll(selector)
+                for(let i = 0; i < doms.length; i++) {
+                    this[i] = doms[i]
+                }
+                this.length = doms.length
+
+                return this
+            }
+        }
+
+        jQuery.prototype.init.prototype = jQuery.prototype
+
+        jQuery.extend = jQuery.prototype.extend = function(...args) {
+
+        }
+
+        window.jQuery = window.$ = jQuery
+    })(window)
+</script>
+</html>

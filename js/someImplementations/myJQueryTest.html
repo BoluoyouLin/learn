@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            color: red;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!--  用来测试自己实现的jQuery -->
+    <div class="box" id="dom1">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+</body>
+<script src="./jQuery.js"></script>
+<script>
+    $(".box").on("click", function() {
+        console.log(1)
+    })
+    $("#dom1").on("click", function() {
+        console.log(2)
+    })
+    $("#dom1").off("click")
+</script>
+</html>

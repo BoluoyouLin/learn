@@ -1,5 +1,7 @@
 #main {
     width: 100%;
+    display: flex;
+    height: 650px;
 }
 
 .left {
@@ -10,6 +12,55 @@
 }
 
 .right {
-    width:70%;
+    flex: 1;
     background-color: pink;
 }
+
+.left li {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 500;
+    color: whitesmoke;
+    border-bottom: 1px solid white;
+    line-height: 80px;
+    cursor: pointer;
+}
+
+/* 销售员界面 */
+.salesman-wrapper {
+    width: 600px;
+    box-sizing: border-box;
+    padding: 20px 100px;
+}
+
+.salesman-wrapper table{
+    width: 500px;
+    text-align: center;
+    color: #333;
+}
+
+.salesman-wrapper th {
+    font-size: 20px;
+    font-weight: 500;
+    color: black;
+}
+
+.salesman-wrapper .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #fff;
+}
+
+.salesman-wrapper .top h3{
+    font-size:20px;
+    font-weight: 500;
+    color: white;
+}
+
+.salesman-wrapper .td.th {
+    height: 30px;
+}
+

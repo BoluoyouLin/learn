@@ -11,7 +11,7 @@
     <script>
         //防抖
         function debounce(fn) {
-            let timeout;
+            let timeout = null;
             return function() {
                 clearTimeout(timeout)
                 timeout = setTimeout(() => {

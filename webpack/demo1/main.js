@@ -1,3 +1,3 @@
 import App from './app.js';
 
-App();
+App(1,6);

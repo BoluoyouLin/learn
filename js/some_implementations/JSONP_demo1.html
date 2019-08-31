@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script type="text/javascript" src="http://domain/api?param1=a&param2=b&callback=jsonp"></script>
+<script>
+    // function jsonp(data) {
+    //     console.log(data)
+    // }
+
+    function jsonp(url, jsonpCallback, callback) {
+        let script = document.createElement('script')
+        script.src = url
+        script.type = 'text/javascript'
+        script.async = true
+        window[jsonpCallback] = callback
+        document.body.appendChild(script)
+    }
+    jsonp('http://www.main.com/doc1', 'callback', function(data) {
+        console.log(data)
+    })
+</script>
+</html>

@@ -1,3 +1,3 @@
-export default function add(x,y) {
+export default function (x,y) {
     console.log(x+y)
 }

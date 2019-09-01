@@ -30,6 +30,16 @@
                 return self.apply(context, [].concat.call(args, [].slice.call(arguments)))
             }
         }
+
+        function _bind() {
+            let that = this,
+            self = [].shift.call(arguments),
+            args = [].slice.call(arguments)
+
+            return function() {
+                return that.apply(self, args.concat(...arguments))
+            }
+        }
     </script>
 </body>
 </html>

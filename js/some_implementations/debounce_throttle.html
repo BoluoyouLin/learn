@@ -38,6 +38,34 @@
 
         let dom = document.getElementById('inp');
         dom.addEventListener('input', debounce(display))
+
+        function _debounce(fn, times) {
+            let timer = null
+            return function(...args) {
+                clearTimeout(timer)
+                timer = setTimeout(() => {
+                    fn.apply(this,args)
+                },times)
+            }
+        }
+
+        function _throttle(fn, times) {
+            let target = false
+            return function(...args) {
+                if(target) return;
+                target = true
+                setTimeout(()=> {
+                    fn.apply(this,args)
+                    target = false
+                }, times)
+            }
+        }
+        function input(value) {
+            console.log(value)
+        }
+
+        var dom = document.getElementById('inp')
+        dom.addEventListener('input', _debounce(input, 500))
     </script>
 </body>
 </html>

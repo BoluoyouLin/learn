@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // function Teacher() {
+    //     this.students = []
+    // }
+
+    // Teacher.prototype.makeHomework = function(homework) {
+    //     for(let i = 0; i < this.students.length; i++) {
+    //         this.students[i].listen(homework)
+    //     }
+    // }
+
+    // function Student(name, teacher) {
+    //     this.name = name
+    //     this.teacher = teacher
+    //     teacher.students.push(this)
+    // }
+
+    // Student.prototype.listen = function(homework) {
+    //     console.log(this.name+homework)
+    // }
+
+    // var teacher = new Teacher()
+    // var student1 = new Student('xiaoming', teacher)
+    // var student2 = new Student('xiaohong', teacher)
+    // teacher.makeHomework("liuzuoye")
+    class Publisher {
+      constructor() {
+        this.subscribers = {
+          any : []
+        }
+      }
+
+      subscribe(fn, type = 'any') {
+        if(this.subscribers[type] === undefined) {
+          this.subscribers[type] = []
+        }
+        this.subscribers[type].push(fn)
+      }
+      unSubscribe(fn, type = 'any') {
+        if(this.subscribes[type] !== undefined) {
+          let temp = []
+          this.subscribers[type].forEach(item => {
+            if(item !== fn) {
+              temp.push(item)
+            }
+          })
+          this.subscribers[type] = temp
+        }
+      }
+
+      publish(args, type = 'any') {
+        this.subscribers[type].forEach(item => {
+          item(args)
+        })
+      }
+
+      static makePublisher(obj) {
+        obj.publisher = new Publisher()
+      }
+    }
+
+    var person = {
+      sayHi : function(args) {
+        this.publisher.publish(args)
+      },
+      sayAgs : function(args) {
+        this.publisher.publish(args,'Age')
+      }
+    }
+
+    Publisher.makePublisher(person)
+
+    var myLover = {
+      name: '',
+      hello: function(name) {
+        console.log('my name is '+ name)
+      },
+      talkAge:function(num) {
+        console.log('my ags is '+ num)
+      }
+    }
+
+    person.publisher.subscribe(myLover.hello)
+    person.publisher.subscribe(myLover.talkAge,'Age')
+
+    person.sayHi('Lin')
+    person.sayAgs(1)
+
+</script>
+</html>

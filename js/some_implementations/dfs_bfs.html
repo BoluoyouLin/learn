@@ -54,6 +54,32 @@
         window.onload = function () {
             console.log(dfs(parent, []))
         }
+
+        function _dfs(node, results) {
+            if(node === null) return;
+
+            results.push(node)
+            let child = node.children
+            for(let i = 0; i < child.length; i++) {
+                _dfs(child[i],results)
+            }
+            return results
+        }
+
+        function _bfs(node) {
+            let results = []
+            let nodes = []
+
+            nodes.push(node)
+            while(nodes.length != 0) {
+                let temp = nodes.shift()
+                results.push(temp)
+                for(let i = 0; i < temp.children.length; i++) {
+                    nodes.push(temp.children[i])
+                }
+            }
+            return results
+        }
     </script>
 </body>
 

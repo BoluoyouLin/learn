@@ -18,5 +18,11 @@
     function fn() {}
 
     _new(fn, 1,2,"string")
+
+    function __new(fn, ...args) {
+        let obj = Object.create(fn.prototype)
+        let res = fn.apply(obj, args)
+        return res instanceof Object ? res : obj
+    }
 </script>
 </html>

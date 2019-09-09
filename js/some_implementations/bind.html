@@ -9,27 +9,27 @@
 <body>
     <button onclick="display()"></button>
     <script>
-        var name = "wei"
-        var obj = {
-            name:"lin"
-        }
+        // var name = "wei"
+        // var obj = {
+        //     name:"lin"
+        // }
 
-        function show() {
-            console.log(this)
-            console.log(this.name)
-        }
+        // function show() {
+        //     console.log(this)
+        //     console.log(this.name)
+        // }
 
-        let display = show.bind(obj)
+        // let display = show.bind(obj)
 
         //实现一个bind()，在低浏览器没有bind（）的情况下
-        if(!Function.prototype.bind) {
-            var self = this,
-                context = [].shift.call(arguments),
-                args = [].slice.call(arguments)
-            return function() {
-                return self.apply(context, [].concat.call(args, [].slice.call(arguments)))
-            }
-        }
+        // if(!Function.prototype.bind) {
+        //     var self = this,
+        //         context = [].shift.call(arguments),
+        //         args = [].slice.call(arguments)
+        //     return function() {
+        //         return self.apply(context, [].concat.call(args, [].slice.call(arguments)))
+        //     }
+        // }
 
         function _bind() {
             let that = this,
@@ -40,6 +40,26 @@
                 return that.apply(self, args.concat(...arguments))
             }
         }
+
+        function __bind() {
+            let self = [].shift.call(arguments),
+            _that = this,
+            args = [...arguments]
+            return function() {
+                return _that.apply(self, args.concat(...arguments))
+            }
+        }
+        var a = 2
+        let obj = {
+            a:1
+        }
+        function display() {
+            console.log(this.a)
+        }
+        display.__bind = __bind
+        let k = display.__bind(null)
+        k()
+
     </script>
 </body>
 </html>

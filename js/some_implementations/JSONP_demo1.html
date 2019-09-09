@@ -23,8 +23,17 @@
         window[jsonpCallback] = callback
         document.body.appendChild(script)
     }
-    jsonp('http://www.main.com/doc1', 'callback', function(data) {
-        console.log(data)
-    })
+    // jsonp('http://www.main.com/doc1', 'callback', function(data) {
+    //     console.log(data)
+    // })
+
+    function _jsonp(url,callback, fn) {
+        let script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.type = 'text/javascript'
+        window[callback] = fn
+        document.body.appendChild(script)
+    }
 </script>
 </html>

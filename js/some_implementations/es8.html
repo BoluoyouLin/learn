@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const obj = {
+        a:1,
+        b:2,
+        c:3,
+        v:function() {}
+    }
+    // Object.values()
+    // Object.values(obj).forEach(item => console.log(item))
+    // console.log(Object.values(obj))
+    
+    //Object.entries()
+    // Object.entries(obj).forEach(item => console.log(item[0],item[1]))
+    // for(let [key, value] of Object.entries(obj)) {
+    //     console.log(key, value)
+    // }
+
+    // console.log(Object.getOwnPropertyDescriptors(obj))
+    // const obj2 = {
+    //     name: 'Jine',
+    //     get age() { return '18' }
+    // };
+    console.log(Object.getOwnPropertyDescriptors(obj))
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        @media screen and (min-width: 450px) {
+            .c1 {
+                width: 20px;
+                height: 20px;
+                background-image:url(./1.png)
+            }
+            .c2 {
+                width: 20px;
+                height: 20px;
+                background-image: url(./2.png)
+            }
+            .c3 {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                box-shadow: 0px 0px 1px black, 100px 100px 1px green, 100px 200px 2px #eee;
+                transition: all 1s ease-in
+            }
+            .c3:hover {
+                height: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="c1"></div>
+    <div class="c2"></div>
+    <div class="c3"></div>
+</body>
+</html>

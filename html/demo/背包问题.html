@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var v = [{'w':2,'v':12},{'w':1,'v':10},{'w':3,'v':20},{'w':2,'v':15}]
+    var w = 5
+    // f(n) = max{f(n, i - 1),f(n - v[i].w, i - 1) + v[i].v}
+    function solve(w,index) {
+        if(index < 0 || w == 0) return 0
+        let ans = 0
+        if(w >= v[index].w) {
+            ans = Math.max(solve(w - v[index].w, index - 1) + v[index].v, solve(w, index - 1))
+        }
+        console.log(ans)
+        return ans
+    }
+    console.log(solve(w, v.length - 1))
+</script>
+</html>

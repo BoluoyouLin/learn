@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            color: #999;
+            margin: 0;
+            padding: 0;
+        }
+        .content-wrapper,
+        .leftBar,
+        .rightBar {
+            height: 400px;
+            float: left;
+        }
+        .content-wrapper {
+            width: 100%;
+        }
+        .content {
+            height: 400px;
+            margin: 0 200px;
+            background-color: lime;
+        }
+        .leftBar {
+            width: 200px;
+            background-color: orange;
+            margin-left: -100%;
+        }
+        .rightBar {
+            width: 200px;
+            background-color: orange;;
+            margin-left: -200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="content-wrapper">
+            <div class="content"></div>
+        </div>
+        <aside class="leftBar">1</aside>
+        <aside class="rightBar">2</aside>
+    </div>
+</body>
+<script>
+     function res(a,b) {
+         if(a >= b) {
+             if(a === b ) {
+                 console.log(a)
+                 return a
+             }
+             else {
+                 return 0
+             }
+         }
+         else {
+             return res(a + 1, b - 1) + a + b
+         }
+     }
+     console.log(res(8,2012))
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrapper">
+        <a>1</a>
+        <a>2</a>
+        <a>3</a>
+        <a>4</a>
+        <a>5</a>
+        <a>6</a>
+        <a>7</a>
+        <a>8</a>
+        <a>9</a>
+        <a>10</a>
+        <a>11</a>
+    </div>
+</body>
+<script>
+    var div = document.getElementById('wrapper');
+    div.onclick = function(e) {
+        var aList = document.getElementsByTagName("a")
+        var index = 0
+        Array.from(aList).forEach(item => {
+            if(item == e.target) {
+                index++
+                console.log(index)
+            }
+            index++
+        })
+    }
+</script>
+</html>
